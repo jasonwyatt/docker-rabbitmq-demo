@@ -1,0 +1,23 @@
+producer:
+    build: ./producer
+    volumes:
+        - ./producer:/app
+    links:
+        - rabbitmq:rabbitmq
+    environment:
+        - RABBITMQ_PASS=mypass
+worker:
+    build: ./worker
+    volumes:
+        - ./worker:/app
+    links:
+        - rabbitmq:rabbitmq
+    environment:
+        - RABBITMQ_PASS=mypass
+rabbitmq:
+    image: tutum/rabbitmq
+    environment:
+        - RABBITMQ_PASS=mypass
+    ports:
+    #    - "5672:5672"
+        - "15672:15672"

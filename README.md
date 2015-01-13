@@ -35,4 +35,5 @@ When you run `fig up`, the following happens:
 
 # Starting multiple producers/workers
 
-`fig scale rabbitmq=1 producer=[num producers] worker=[num workers]`
+    fig start rabbitmq
+    fig scale producer=[num producers] worker=[num workers]
